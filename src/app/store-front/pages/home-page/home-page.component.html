@@ -1,0 +1,17 @@
+<p>home-page works!</p>
+
+<h1 class="text-3xl font-bold font-montserrat">all products</h1>
+<h2 class="text-xl mb-6">for all kinds of winners</h2>
+
+<div
+  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 my-2 gap-3"
+>
+  <!-- ! card component -->
+
+  @for (product of productsResource.value()?.products; track $index) {
+
+  <app-product-card [product]="product"></app-product-card>
+  }@empty {
+  <p>Currently no products to be displayed.</p>
+  }
+</div>
