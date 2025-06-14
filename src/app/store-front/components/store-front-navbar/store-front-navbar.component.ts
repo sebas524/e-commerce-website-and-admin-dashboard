@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({
   selector: 'app-store-front-navbar',
@@ -7,4 +8,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './store-front-navbar.component.html',
   styleUrl: './store-front-navbar.component.css',
 })
-export class StoreFrontNavbarComponent {}
+export class StoreFrontNavbarComponent {
+  authService = inject(AuthService);
+}
