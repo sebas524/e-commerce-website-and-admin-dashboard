@@ -12,6 +12,14 @@ export const routes: Routes = [
     canMatch: [unauthenticatedGuard],
   },
   {
+    path: 'admin',
+    loadChildren: () => {
+      return import('./admin-dashboard/admin-dashboard.routes').then((m) => {
+        return m.adminDashboardRoutes;
+      });
+    },
+  },
+  {
     path: '',
     loadChildren: () => {
       return import('./store-front/store-front.routes').then((m) => {
