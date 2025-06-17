@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { unauthenticatedGuard } from './auth/guards/unauthenticated.guard';
+import { isAdminGuard } from './auth/guards/is-admin.guard';
 
 export const routes: Routes = [
   {
@@ -18,6 +19,7 @@ export const routes: Routes = [
         return m.adminDashboardRoutes;
       });
     },
+    canMatch: [isAdminGuard],
   },
   {
     path: '',

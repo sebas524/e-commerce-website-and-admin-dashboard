@@ -83,11 +83,12 @@
     </ul>
   </div>
   <div class="navbar-end gap-4">
-    @if (authService.authStatus() ==="authenticated") {
+    @if (authService.user()?.roles?.includes("admin")) {
 
+    <a routerLink="/admin" class="btn btn-accent">Admin Panel</a>
+    } @if (authService.authStatus() ==="authenticated") {
     <a class="btn btn-warning">Hello, {{ authService.user()?.fullName }}</a>
     <a class="btn btn-error" (click)="authService.logout()">Log Out</a>
-
     }@else if (authService.authStatus()==="unauthenticated") {
     <a routerLink="/auth/login" class="btn btn-secondary">Sign In</a>
 
