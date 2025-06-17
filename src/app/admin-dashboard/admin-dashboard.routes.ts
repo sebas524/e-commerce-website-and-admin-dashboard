@@ -13,7 +13,7 @@ export const adminDashboardRoutes: Routes = [
         component: ProductsAdminPageComponent,
       },
       {
-        path: 'product/id:',
+        path: 'product/:id',
         component: ProductAdminPageComponent,
       },
       {
