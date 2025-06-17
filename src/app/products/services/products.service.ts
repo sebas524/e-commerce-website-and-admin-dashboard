@@ -56,9 +56,6 @@ export class ProductsService {
       })
       .pipe(
         tap((res) => {
-          console.log(res);
-        }),
-        tap((res) => {
           return this.productsCache.set(key, res);
         })
       );
@@ -72,9 +69,6 @@ export class ProductsService {
     return this.http
       .get<Product>(`${environment.baseUrl}/products/${idOrSlug}`)
       .pipe(
-        tap((res) => {
-          console.log(res);
-        }),
         tap((res) => {
           return this.productCache.set(idOrSlug, res);
         })
@@ -90,9 +84,6 @@ export class ProductsService {
     }
 
     return this.http.get<Product>(`${environment.baseUrl}/products/${id}`).pipe(
-      tap((res) => {
-        console.log(res);
-      }),
       tap((res) => {
         return this.productCache.set(id, res);
       })
@@ -152,11 +143,7 @@ export class ProductsService {
       return this.uploadImage(imageFile);
     });
 
-    return forkJoin(uploadObservables).pipe(
-      tap((imageNames) => {
-        console.log({ imageNames });
-      })
-    );
+    return forkJoin(uploadObservables);
   }
   uploadImage(imageFile: File): Observable<string> {
     const formData = new FormData();
@@ -183,6 +170,5 @@ export class ProductsService {
         return currentProduct.id === id ? product : currentProduct;
       });
     });
-    console.log('cache has been updated');
   }
 }

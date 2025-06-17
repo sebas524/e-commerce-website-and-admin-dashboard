@@ -34,12 +34,9 @@ export class LoginPageComponent {
 
       return;
     }
-    console.log(this.myForm.value);
     const { email = '', password = '' } = this.myForm.value;
 
     this.authService.login(email!, password!).subscribe((isAuthenticated) => {
-      console.log(isAuthenticated);
-
       if (isAuthenticated) {
         this.router.navigateByUrl('/');
         return;
@@ -55,9 +52,5 @@ export class LoginPageComponent {
       email: '',
       password: '',
     });
-
-    // todo: check authentication
-    // todo: register
-    // todo: logout
   }
 }

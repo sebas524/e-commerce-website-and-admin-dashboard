@@ -115,19 +115,15 @@ export class ProductDetailsComponent implements OnInit {
     setTimeout(() => {
       this.savedSuccessful.set(false);
     }, 3000);
-
-    console.log({ productLike });
   }
 
   onFilesChanged(event: Event) {
     const fileList = (event.target as HTMLInputElement).files;
     this.imageFileList = fileList ?? undefined;
-    console.log(fileList);
 
     const imageUrls = Array.from(fileList ?? []).map((file) => {
       return URL.createObjectURL(file);
     });
-    console.log({ imageUrls });
 
     this.tempImages.set(imageUrls);
   }

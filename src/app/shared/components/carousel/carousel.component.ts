@@ -29,7 +29,6 @@ export class CarouselComponent implements AfterViewInit, OnChanges {
     this.swiperInit();
   }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
     if (changes['images'].firstChange) {
       return;
     }
@@ -52,8 +51,6 @@ export class CarouselComponent implements AfterViewInit, OnChanges {
   swiperInit() {
     const element = this.swiperDiv().nativeElement;
     if (!element) return;
-
-    console.log(element);
 
     this.swiper = new Swiper(element, {
       // Optional parameters
