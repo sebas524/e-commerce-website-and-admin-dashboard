@@ -1,5 +1,9 @@
 # ShopWebsiteApp
 
+to checkout admin functionality please log in using the following credentials that have admin rights: 
+username: test1@google.com
+password: Abc123
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
 
 ## Development server
